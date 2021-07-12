@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Service to check Word Game</title>
+</head>
+<body>
+    <div>
+        <h1 th:text="'Web Service is working now!'">Web Service is not ready yet!</h1>
+        <form action="/check" method="POST" name="myForm">
+            <textarea style="width: 500px; height: 200px;" placeholder="Input your text here!"></textarea>
+            <input type="submit" value="Send" onclick="submitform()">
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function submitform() {
+            alert("Sending Json");
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action, true);
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            var formData = JSON.stringify($("#myForm").serializeArray());
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>
